@@ -16,5 +16,22 @@ namespace Task_4._1_Forms
         {
             InitializeComponent();
         }
+        private static double Rec(double i, int n)
+            {
+                return i < n ? Math.Sqrt(i + Rec(++i, n)) : Math.Sqrt(i);
+            }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int n = Convert.ToInt32(textBox1.Text);
+            if (n > 0)
+            {
+                textBox2.Text += n / Rec(1, n);
+            }
+            else if (n < 0)
+                textBox2.Text += "Ошибка: N меньше 0";
+            else if (n == 0)
+                textBox2.Text += "Ошибка: N = 0";
+        }
     }
 }
