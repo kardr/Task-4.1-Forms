@@ -23,15 +23,22 @@ namespace Task_4._1_Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int n = Convert.ToInt32(textBox1.Text);
-            if (n > 0)
+            try
             {
-                textBox2.Text += n / Rec(1, n);
+                int n = Convert.ToInt32(textBox1.Text);
+                if (n > 0)
+                {
+                    textBox2.Text += n / Rec(1, n);
+                }
+                else if (n < 0)
+                    textBox2.Text += "Ошибка: N меньше 0";
+                else if (n == 0)
+                    textBox2.Text += "Ошибка: N = 0";
             }
-            else if (n < 0)
-                textBox2.Text += "Ошибка: N меньше 0";
-            else if (n == 0)
-                textBox2.Text += "Ошибка: N = 0";
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+            }
         }
     }
 }
